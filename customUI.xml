@@ -1,0 +1,137 @@
+
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" 
+
+onLoad="RibbonControls.OnLoad">
+
+<ribbon>
+<tabs>
+
+<tab id="RappToolsTabOnTheRibbon2" label="IFA Tools" insertAfterMso="TabView">
+
+
+  <group id="ViewsGroup00" label="Chairman tools v8.0" tag="RefreshRibbon"> 
+
+	<button id="etsinfv-newRevision" size="large" label="Revised" screentip = "Revised" 
+		showLabel="true" imageMso="QueryAppend" onAction="ButtonAction" tag="NewRevision"/>
+ 
+	<splitButton id="split1" size="large">
+	<menu id="splitmenu" label="test label" imageMso="AcceptInvitation" itemSize="large">
+	<menuSeparator id="split1sep1" />
+	<button id="etsinfv-SetAsAgreed" label="Agreed" screentip = "Agreed" description="Contribution becomes a Candidate for Approval." 
+		showLabel="true" imageMso="AcceptInvitation" onAction="ButtonAction" tag="SetAsAgreed"/>
+	<menuSeparator id="split1sep2" />
+	<button id="etsinfv-ResetMeetingNumber" label="Reset" screentip = "Reset" description="Reset the meeting number configuration." 
+		showLabel="true" imageMso="InkEraseMode" onAction="ButtonAction" tag="ResetMeetingNumber"/>
+	</menu>
+	</splitButton>
+
+	<button id="etsinfv-SetAsApproved" size="large" label="Approved" screentip = "Approved" 
+		showLabel="true" imageMso="HappyFace" onAction="ButtonAction"/>
+
+	<button id="etsinfv-SetAsNoted" size="large" label="Noted" screentip = "Noted" 
+		showLabel="true" imageMso="InkDeleteAllInk" onAction="ButtonAction" tag="NotedContribution"/>
+
+	<button id="etsinfv-SetAsPostponed" size="large" label="Postponed" screentip = "Postponed" 
+		showLabel="true" imageMso="PauseTimer" onAction="ButtonAction" tag="PostponedContribution"/>
+
+	<button id="etsinfv-SetAsWithdrawn" size="large" label="Withdrawn" screentip = "Withdrawn" 
+		showLabel="true" imageMso="DeclineInvitation" onAction="ButtonAction" tag="WithdrawnContribution"/>
+
+	<!-- button id="etsinfv-NotAvailableContribution" size="large" label="Not Available" 
+		screentip = "Not Available" showLabel="true" imageMso="TentativeAcceptInvitation" onAction="ButtonAction" 
+		tag="NotAvailableContribution"/ -->
+
+	<button id="etsinfv-SetAsAlmostAgreedFeat" size="large" label="Almost Agreed FEAT" 
+		screentip = "Almost Agreed Feature Contribution" showLabel="true" imageMso="SharingOpenNotesFolder" 
+		onAction="ButtonAction" tag="AlmostAgreedFeatureContribution"/>
+
+	<button id="etsinfv-SetAsAgreedFeat" size="large" label="Agreed FEAT" 
+		screentip = "Agreed Feature Contribution" showLabel="true" imageMso="PostcardWizard" 
+		onAction="ButtonAction" tag="AgreedFeatureContribution"/>
+
+	<button id="etsinfv-FurtherDiscussionRequired" size="large" label="Further discussion required" 
+		screentip = "Further discussion required" showLabel="true" imageMso="MessageToAttendeesMenu" 
+		onAction="ButtonAction" tag="FurtherDiscussionRequired"/>
+
+	<button id="etsinfv-ReturnToContribution" size="large" label="Return To" screentip = "Return To" 
+		showLabel="true" imageMso="ExchangeFolder" onAction="ButtonAction" tag="ReturnToContribution"/>
+
+	<!-- button id="etsinfv-EmailApproval" size="large" label="Email Approval" screentip = "Email Approval" 
+		showLabel="true" imageMso="DelayDeliveryOutlook" onAction="ButtonAction" tag="EmailApproval"/ -->
+
+    	<menu id="Grp2SB1Menu1" label="Reports and Statistics" imageMso="FormControlEditBox" itemSize="large" size="large" >
+    	<button id="etsinfv-FindOpenItems" label="To-Do Available Only" imageMso="FileWorkflowTasks" 
+    		description="Highlight all contributions that need further processing and are available in the IFA Document Directory." onAction="ButtonAction" />
+    	<menuSeparator id="Grp2SB1Sep1" />
+    	<button id="etsinfv-FindAllOpenItems" label="To-Do All" imageMso="FileWorkflowTasks" 
+        	description="Highlight all contributions that need further processing."  
+            onAction="ButtonAction" />
+    	<menuSeparator id="Grp2SB1Sep2" />
+    	<button id="etsinfv-countStatusPopup" label="Statistics (pop-up)" imageMso="CreateReport" 
+            description="Show contribution status statistics in a pop-up window."  onAction="ButtonAction" />
+    	<menuSeparator id="Grp2SB1Sep3" />
+    	<button id="etsinfv-countStatus" label="Statistics (print)" imageMso="CreateReport" 
+            description="Append contribution status statistics in the agenda."  onAction="ButtonAction" />
+    	<menuSeparator id="Grp2SB1Sep4" />
+    	<button id="ResetIFADocumentDirectory" label="Reset Document Directory" imageMso="InkEraseMode" 
+            description="Reset the IFA Document Directory configuration"  onAction="ButtonAction" />
+    	</menu>
+
+
+  </group>
+
+
+
+  <group id="ViewsGroup01" label="Change views" tag="RefreshRibbon"> 
+ 
+		   	<control idMso="WindowsArrangeAll" size="large" showLabel="false" enabled="true"/>
+		   	<button idMso="ZoomCurrent100" size="large" showLabel = "false"/>
+			<button idMso="ZoomPageWidth" size="large" showLabel = "false"/>
+	   		<control idMso="ZoomDialog" size="large" showLabel = "false"/>
+			<control idMso="WhiteSpaceBetweenPagesShowHide" size="large" imageMso="PageBreakInsertOrRemove" showLabel="false" enabled="true"/>
+
+ </group>
+
+ <group id="ViewsGroup02" label="Misc" tag="RefreshRibbon"> 
+
+	  	<box id="ViewsGroupBox01" boxStyle="horizontal" >
+		    <control idMso="ReviewTrackChanges"  showLabel="false" enabled="true"/>
+		    <control idMso="ReviewBalloonsMenu"  showLabel="false" enabled="true"/>
+		    <control idMso="ReviewPreviousChange"  showLabel="false" enabled="true"/>
+		    <control idMso="ReviewNextChange"  showLabel="false" enabled="true"/>
+		    <control idMso="ReviewDisplayForReview" showLabel="false" enabled="true"/>
+	  	</box>
+		<box id="ViewsGroupBox01a" boxStyle="horizontal">
+		   <control idMso="FormatPainter" showLabel="false" enabled="true"/>
+		   <control idMso="Bold" showLabel="false" enabled="true"/>
+		   <control idMso="Italic" showLabel="false" enabled="true"/> 
+		   <control idMso="UnderlineGallery" showLabel="false" enabled="true"/>
+		   <control idMso="FontColorPicker" showLabel="false" enabled="true"/> 
+		   <control idMso="TextHighlightColorPicker" showLabel="false" enabled="true"/>
+		   <control idMso="ShadingColorPicker" showLabel="false" enabled="true"/>
+		</box>
+		<box id="ViewsGroupBox01b" boxStyle="horizontal">
+		   <button id="etsinfv-CreateTableTemplateForImport" label="Create Table for Import" screentip = "Create Table for Import" showLabel="false" imageMso="CacheListData" onAction="ButtonAction" tag="CreateTableTemplateForImport"/>
+		   <button id="etsinfv-DisplayCurrentTDoc" label="Show Document number" screentip = "Display document number" showLabel="true" imageMso="FormControlEditBox" onAction="ButtonAction" tag="DisplayCurrentTDoc"/>			</box>
+		<box id="ViewsGroupBox01c" boxStyle="vertical">
+		  <button id="etsinfv-LinkAllFiles" label="Link All Files" screentip = "Create clickable links for each UID" showLabel="true" imageMso="HyperlinkInsert" onAction="ButtonAction" tag="LinkFiles"/>
+		  <button id="etsinfv-LinkNewFiles" label="Link New Files" screentip = "Create clickable links for each new UID" showLabel="true" imageMso="HyperlinkInsert" onAction="ButtonAction" tag="LinkNewFiles"/>
+		  <button id="etsinfv-RemoveFileLinks" label="Remove All Links" screentip = "Remove all links to UIDs" showLabel="true" imageMso="HyperlinkInsert" onAction="ButtonAction" tag="RemoveFileLinks"/>		   	  <checkBox id="checkDefaultDirectory" label="Use Default Directories" onAction="onCheckAction"/>
+
+		  <button id="etsinfv-SetAsAgreedMegaCR" label="Agreed MegaCR" screentip = "Agreed MegaCR" showLabel="true" imageMso="SharingOpenNotesFolder" onAction="ButtonAction" tag="SetAsAgreedMegaCR"/>
+		  <button id="etsinfv-SetAsApprovedMegaCR" label="Approved MegaCR" screentip = "Approved MegaCR" showLabel="true" imageMso="PostcardWizard" onAction="ButtonAction" tag="SetAsAgreedMegaCR"/>
+		</box>
+		<box id="ViewsGroupBox01d" boxStyle="vertical">
+		  <button id="etsinfv-SetTrackColorRed" label="Changes in Red" screentip = "Highlight tracked changes in red" showLabel="true" imageMso="HyperlinkInsert" onAction="ButtonAction" tag="SetTrackColorRed"/>
+		  <button id="etsinfv-SetTrackColorByAuthor" label="Changes by Author" screentip = "Track changes colors by author" showLabel="true" imageMso="HyperlinkInsert" onAction="ButtonAction" tag="SetTrackColorByAuthor"/>
+		</box>
+
+ </group>
+
+
+ </tab>
+
+ 
+</tabs>		
+</ribbon>		
+</customUI>		
