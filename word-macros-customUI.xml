@@ -6,10 +6,10 @@ onLoad="RibbonControls.OnLoad">
 <ribbon>
 <tabs>
 
-<tab id="RappToolsTabOnTheRibbon2" label="IFA Tools" insertAfterMso="TabView">
+<tab id="RappToolsTabOnTheRibbon2" label="Chairman's Tools" insertAfterMso="TabView">
 
 
-  <group id="ViewsGroup00" label="Chairman tools v8.0" tag="RefreshRibbon"> 
+  <group id="ViewsGroup00" label="Chairman's tools v8.2" tag="RefreshRibbon"> 
 
 	<button id="etsinfv-newRevision" size="large" label="Revised" screentip = "Revised" 
 		showLabel="true" imageMso="QueryAppend" onAction="ButtonAction" tag="NewRevision"/>
