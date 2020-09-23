@@ -1,0 +1,16 @@
+<!-- Created by Jan Ignatius (Nokia Bell Labs) -->
+
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+	<ribbon>
+		<tabs>
+			<tab id="customTab" label="Chairman's Tools" insertAfterMso="TabHome">
+				<group id="customGroup" label="Chairman's Tools v1.2">
+					<button id="customButton1" label="Compare Sheets" size="large" onAction="HighlightDiffsMultipleSheets" imageMso="SourceControlShowDifferences" />
+					<button id="customButton2" label="Create full table" size="large" onAction="Create_full_table" imageMso="TableColumnsInsertLeft" />
+					<button id="customButton3" label="F2F format" size="large" onAction="F2F_format" imageMso="PivotTableLayoutReportLayout" />
+					
+				</group>
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>
