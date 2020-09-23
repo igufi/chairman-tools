@@ -35,24 +35,28 @@
 ' - optimize the TODO-tool as it now iterates all cells, we could just concentrate on the 6th cell of a row
 ' - LinkFiles and todo-tool has some copy&pasted code between them, we could clean this up
 
+
+'' ##################### GLOBAL VARIABLES #####################
+
 Public Current_Meeting_Number As Integer
 Public IFA_Document_Directory As String
 Public User_Not_Ready As Boolean
 
-
+'' ##################### countStatusPopup #####################
 Function countStatusPopup()
 Dim popup As Boolean
 popup = True
 s = createStatistics(popup)
 End Function
 
+'' ##################### countStatus #####################
 Function countStatus()
 Dim popup As Boolean
 popup = False
 s = createStatistics(popup)
 End Function
 
-
+'' ##################### createStatistics #####################
 Function createStatistics(popup As Boolean) As Boolean
 '
 ' countStatus Macro
@@ -278,6 +282,8 @@ End With
 
 End Function
 
+    
+'' ##################### NewRevision #####################
 Sub NewRevision()
 '
 ' Appends a new row after the selected row and marking the current row's document as revised
@@ -345,6 +351,8 @@ End With
 End Sub
 
 
+        
+'' ##################### FurtherDiscussionRequired #####################
 Sub FurtherDiscussionRequired()
 '
 ' Mark status as Further Discussion Required
@@ -367,6 +375,8 @@ Sub FurtherDiscussionRequired()
     
 End Sub
 
+          
+'' ##################### ReturnToContribution #####################
 Sub ReturnToContribution()
 '
 ' Mark status as RETURN
@@ -389,18 +399,21 @@ Sub ReturnToContribution()
     
 End Sub
 
+'' ##################### ResetMeetingNumber #####################
 Sub ResetMeetingNumber()
 
     Current_Meeting_Number = 0
     
 End Sub
 
+'' ##################### ResetIFADocumentDirectory#####################
 Sub ResetIFADocumentDirectory()
 
     IFA_Document_Directory = ""
     
 End Sub
 
+'' ##################### FindOpenItems #####################
 Function FindOpenItems() As Boolean
 
 Dim available_only As Boolean
@@ -409,6 +422,7 @@ s = FindToDo(available_only)
 
 End Function
 
+'' ##################### FindAllOpenItems #####################
 Function FindAllOpenItems() As Boolean
 
 Dim available_only As Boolean
@@ -417,6 +431,7 @@ s = FindToDo(available_only)
 
 End Function
 
+'' ##################### FindToDo #####################
 Function FindToDo(available_only As Boolean) As Boolean
 
 '' This functions will find all the contributions with status marked as "Agreed", "Almost Agreed FEAT", "Further Discussion Required", "RETURN" or empty.
@@ -531,7 +546,7 @@ End With
 End Function
 
 
-
+'' ##################### CreateTableTemplateForImport #####################
 Sub CreateTableTemplateForImport()
 '
 ' CreateTableTemplateForImport Macro
@@ -598,11 +613,14 @@ Sub CreateTableTemplateForImport()
 
 End Sub
 
+'' ##################### GetFolder #####################
 Function GetFolder(Optional Title As String, Optional RootFolder As Variant) As String
 On Error Resume Next
 GetFolder = CreateObject("Shell.Application").BrowseForFolder(0, Title, 0, RootFolder).Items.Item.Path
 End Function
 
+
+'' ##################### DoesFileExist #####################
 Function DoesFileExist(myFilter As String) As Boolean
 
 Dim myFile As String
@@ -631,6 +649,7 @@ Loop
 End Function
 
 
+'' ##################### GetFilePath #####################
 Function GetFilePath(myFilter As String) As String
 
 Dim myFile As String
@@ -656,6 +675,7 @@ Loop
 
 End Function
 
+'' ##################### SetAsAgreed #####################
 Function SetAsAgreed()
 '
 ' Query the user for the current meeting number, assume approval to happen at the next meeting
@@ -724,6 +744,8 @@ Function SetAsAgreed()
 
 End Function
 
+
+'' ##################### SetAsApproved #####################
 Function SetAsApproved()
 
 Dim s As Boolean
@@ -736,6 +758,8 @@ s = ModifyRow("Approved", longrgb, r, g, b, bolded)
 
 End Function
 
+
+'' ##################### SetAsApprovedMegaCR #####################
 Function SetAsApprovedMegaCR()
 
 Dim s As Boolean
@@ -751,6 +775,7 @@ s = ModifyRow("Approved MegaCR", longrgb, r, g, b, bolded)
 
 End Function
 
+'' ##################### SetAsNoted #####################
 Function SetAsNoted()
 
 Dim s As Boolean
@@ -764,6 +789,7 @@ s = ModifyRow("Noted", longrgb, r, g, b, bolded)
 
 End Function
 
+'' ##################### SetAsPostponed #####################
 Function SetAsPostponed()
 
 Dim s As Boolean
@@ -777,6 +803,8 @@ s = ModifyRow("Postponed", longrgb, r, g, b, bolded)
 
 End Function
 
+
+'' ##################### SetAsWithdrawn #####################
 Function SetAsWithdrawn()
 
 Dim s As Boolean
@@ -790,6 +818,8 @@ s = ModifyRow("Withdrawn", longrgb, r, g, b, bolded)
 
 End Function
 
+
+'' ##################### SetAsAlmostAgreedFeat #####################
 Function SetAsAlmostAgreedFeat()
 
 '
@@ -859,6 +889,8 @@ Function SetAsAlmostAgreedFeat()
 
 End Function
 
+                                            
+'' ##################### SetAsAgreedMegaCR #####################
 Function SetAsAgreedMegaCR()
 
 '
@@ -929,6 +961,7 @@ Function SetAsAgreedMegaCR()
 End Function
 
 
+'' ##################### SetAsAgreedFeat #####################
 Function SetAsAgreedFeat()
 
 Dim s As Boolean
@@ -945,6 +978,8 @@ s = ModifyRow("Agreed FEAT", longrgb, r, g, b, bolded)
 
 End Function
 
+
+'' ##################### SetAsEmailApproval #####################
 Function SetAsEmailApproval()
 
 Dim s As Boolean
@@ -958,6 +993,8 @@ s = ModifyRow("Email Approval", longrgb, r, g, b, bolded)
 
 End Function
 
+                                                  
+'' ##################### SetAsModifyRow #####################
 Function ModifyRow(status As String, longrgb, r, g, b As Integer, bolded As Boolean) As Boolean
 
 '' This function updated the status field and changes the table row's background color.
@@ -1005,11 +1042,14 @@ myB = b
 
 End Function
 
+
+'' ##################### UserNameId #####################
 Function UserNameId() As String
     UserNameId = Environ("USERNAME") 'this picks up the login id
     '' Alternative is Word.Application.UserName , which picks up the user name set in Office
 End Function
 
+'' ##################### LinkAllFiles #####################
 Function LinkAllFiles() As String
 
     Dim removeAllLinks As Boolean
@@ -1021,6 +1061,7 @@ Function LinkAllFiles() As String
     
 End Function
 
+'' ##################### LinkNewFiles #####################
 Function LinkNewFiles() As String
 
     Dim removeAllLinks As Boolean
@@ -1032,6 +1073,8 @@ Function LinkNewFiles() As String
     
 End Function
 
+
+'' ##################### RemoveFileLinks #####################
 Function RemoveFileLinks() As String
 
     Dim removeAllLinks As Boolean
@@ -1043,6 +1086,7 @@ Function RemoveFileLinks() As String
 
 End Function
 
+'' ##################### LinkFiles #####################
 Function LinkFiles(newFilesOnly As Boolean, removeAllLinks As Boolean) As String
    
 Dim myTables As Table
@@ -1171,6 +1215,8 @@ End With
 
 End Function
 
+                                                          
+'' ##################### SetTrackColorRed #####################
 Sub SetTrackColorRed()
 '
 ' ChangeTrackColor Macro
@@ -1205,6 +1251,9 @@ Sub SetTrackColorRed()
     End With
 End Sub
 
+                                                          
+
+'' ##################### SetTrackColorByAuthor #####################
 Sub SetTrackColorByAuthor()
 '
 ' TrackColorByAuthor Macro
