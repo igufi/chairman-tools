@@ -118,6 +118,7 @@
         <box id="ViewsGroupBox01e" boxStyle="vertical">
           <button id="etsinfv-SetTrackColorRed" label="Changes in Red" screentip = "Highlight tracked changes in red" showLabel="true" imageMso="HyperlinkInsert" onAction="ButtonAction" tag="SetTrackColorRed"/>
           <button id="etsinfv-SetTrackColorByAuthor" label="Changes by Author" screentip = "Track changes colors by author" showLabel="true" imageMso="HyperlinkInsert" onAction="ButtonAction" tag="SetTrackColorByAuthor"/>
+          <button id="etsinfv-ChangeCommentAuthor" label="Changes Comment Author" screentip = "Change Comment Author in selection" showLabel="true" imageMso="HyperlinkInsert" onAction="ButtonAction" tag="ChangeCommentAuthor"/>
         </box>
 
  </group>
