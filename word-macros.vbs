@@ -1,6 +1,6 @@
 ' CHAIRMAN'S TOOLBAR macro collection
 '
-' (last updated: 2020-09-20)
+' (last updated: 2021-05-25)
 '
 ' This is the macro collection for the Chairman's Toolbar
 ' It was created by Jan Ignatius (Nokia Bell Labs), with help from Jan Kåll (Nokia)
@@ -1286,3 +1286,40 @@ Sub SetTrackColorByAuthor()
 '        .TrackFormatting = True
 '    End With
 End Sub
+                                                          
+                                                          
+                                                          
+'' ##################### ChangeCommentAuthor #####################
+Sub ChangeCommentAuthor()
+'Based on macro by EntendOffice 20181112
+
+Dim I As Long
+Dim xOldName As String
+Dim xNewName As String
+Dim xShortName As String
+If Selection.Comments.Count = 0 Then
+    MsgBox "No comments in your selection!", vbInformation, "KuTools for Word"
+Exit Sub
+End If
+
+xOldName = InputBox("Old author name?", "KuTools for Word")
+xNewName = InputBox("New author name?", "KuTools for Word")
+xShortName = InputBox("New author initials?", "KuTools for Word")
+
+If xOldName = "" Or xNewName = "" Or xShortName = "" Then
+    MsgBox "The author name/initials can’t be empty.", vbInformation, "Kutools for Word"
+Exit Sub
+End If
+
+With Selection
+    For I = 1 To .Comments.Count
+        If .Comments(I).Author = xOldName Then
+            .Comments(I).Author = xNewName
+            .Comments(I).Initial = xShortName
+        End If
+    Next I
+End With
+End Sub
+
+                                                          
+                                                          
